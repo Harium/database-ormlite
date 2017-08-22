@@ -29,6 +29,10 @@ public class OrmLiteBaseDAOImpl<T> implements BaseDAO<T, ConnectionSource> {
         }
     }
 
+    public List<T> queryForEq(String column, Object o) throws SQLException {
+        return dao.queryForEq(column, o);
+    }
+
     public T queryForId(int id) {
         try {
             return dao.queryForId(id);
