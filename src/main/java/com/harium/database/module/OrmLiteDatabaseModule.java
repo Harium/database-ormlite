@@ -1,7 +1,6 @@
 package com.harium.database.module;
 
 import com.harium.database.model.BaseDAO;
-import com.harium.database.module.DatabaseModule;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
@@ -17,6 +16,10 @@ public abstract class OrmLiteDatabaseModule implements DatabaseModule<Connection
 
     protected List<BaseDAO<?, ConnectionSource>> registers = new ArrayList<BaseDAO<?, ConnectionSource>>();
     protected Map<Class<?>, BaseDAO<?, ConnectionSource>> daos = new HashMap<Class<?>, BaseDAO<?, ConnectionSource>>();
+
+    public void init() {
+        init(false);
+    }
 
     public void init(boolean clearDatabase) {
         try {

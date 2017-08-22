@@ -12,7 +12,7 @@ import java.util.List;
 
 public class OrmLiteBaseDAOImpl<T> implements BaseDAO<T, ConnectionSource> {
 
-    Class<T> klass;
+    private Class<T> klass;
 
     protected Dao<T, Integer> dao;
 
