@@ -70,6 +70,20 @@ public class OrmLiteBaseDAOImpl<T> implements BaseDAO<T, ConnectionSource> {
         }
     }
 
+    public int createOrUpdate(T item) {
+        Dao.CreateOrUpdateStatus status = null;
+        try {
+            status = dao.createOrUpdate(item);
+            return status.getNumLinesChanged();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            if (status.isCreated()) {
+                return DatabaseError.ON_UPDATE;
+            }
+            return DatabaseError.ON_CREATE;
+        }
+    }
+
     public int delete(T model) {
         try {
             return dao.delete(model);
