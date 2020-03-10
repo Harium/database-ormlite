@@ -6,7 +6,7 @@
 
     <groupId>com.harium.database</groupId>
     <artifactId>ormlite</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <packaging>jar</packaging>
     <name>Harium OrmLite Database</name>
     <description>OrmLite module to Harium Database</description>
@@ -46,6 +46,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.3.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
