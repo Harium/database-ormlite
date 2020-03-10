@@ -6,7 +6,7 @@
 
     <groupId>com.harium.database</groupId>
     <artifactId>ormlite</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <packaging>jar</packaging>
     <name>Harium OrmLite Database</name>
     <description>OrmLite module to Harium Database</description>
@@ -35,12 +35,12 @@
         <dependency>
             <groupId>com.j256.ormlite</groupId>
             <artifactId>ormlite-core</artifactId>
-            <version>5.0</version>
+            <version>5.1</version>
         </dependency>
         <dependency>
             <groupId>com.j256.ormlite</groupId>
             <artifactId>ormlite-jdbc</artifactId>
-            <version>5.0</version>
+            <version>5.1</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

@@ -5,7 +5,7 @@ import com.harium.database.model.BaseDAO;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
-
+import com.j256.ormlite.table.DatabaseTableConfig;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,8 @@ public class OrmLiteBaseDAOImpl<T> implements BaseDAO<T, ConnectionSource> {
 
     protected Dao<T, Integer> dao;
 
+    public OrmLiteBaseDAOImpl() {}
+
     public OrmLiteBaseDAOImpl(Class<T> klass) {
         this.klass = klass;
     }
@@ -24,7 +26,14 @@ public class OrmLiteBaseDAOImpl<T> implements BaseDAO<T, ConnectionSource> {
         try {
             dao = DaoManager.createDao(connectionSource, klass);
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void init(ConnectionSource connectionSource, DatabaseTableConfig<T> config) {
+        try {
+            dao = DaoManager.createDao(connectionSource, config);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
