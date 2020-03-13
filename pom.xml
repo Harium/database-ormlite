@@ -6,7 +6,7 @@
 
     <groupId>com.harium.database</groupId>
     <artifactId>ormlite</artifactId>
-    <version>1.0.5</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
     <name>Harium OrmLite Database</name>
     <description>OrmLite module to Harium Database</description>
@@ -87,6 +87,10 @@
                     <source>1.7</source>
                     <target>1.7</target>
                     <optimize>true</optimize>
+                    <compilerArgument>-parameters</compilerArgument>
+                    <excludes>
+                        <exclude>**/examples/*</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
             <plugin>
