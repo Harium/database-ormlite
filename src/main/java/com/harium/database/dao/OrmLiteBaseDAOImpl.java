@@ -23,11 +23,6 @@ public class OrmLiteBaseDAOImpl<T, ID> implements BaseDAO<T, ConnectionSource> {
         this.klass = klass;
     }
 
-    public OrmLiteBaseDAOImpl(Class<T> klass, ConnectionSource connectionSource, DatabaseTableConfig<T> config) {
-        this.klass = klass;
-        init(connectionSource, config);
-    }
-
     public void init(ConnectionSource connectionSource) {
         try {
             dao = DaoManager.createDao(connectionSource, klass);
