@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class OrmLiteDatabaseModule implements DatabaseModule<ConnectionSource> {
+public abstract class OrmLiteDatabaseModule<ID> implements DatabaseModule<ConnectionSource> {
 
     protected boolean ignoreErrors = true;
 

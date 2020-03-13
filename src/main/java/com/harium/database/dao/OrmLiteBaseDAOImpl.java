@@ -6,20 +6,26 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.DatabaseTableConfig;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrmLiteBaseDAOImpl<T> implements BaseDAO<T, ConnectionSource> {
+public class OrmLiteBaseDAOImpl<T, ID> implements BaseDAO<T, ConnectionSource> {
 
     private Class<T> klass;
 
-    protected Dao<T, Integer> dao;
+    protected Dao<T, ID> dao;
 
     public OrmLiteBaseDAOImpl() {}
 
     public OrmLiteBaseDAOImpl(Class<T> klass) {
         this.klass = klass;
+    }
+
+    public OrmLiteBaseDAOImpl(Class<T> klass, ConnectionSource connectionSource, DatabaseTableConfig<T> config) {
+        this.klass = klass;
+        init(connectionSource, config);
     }
 
     public void init(ConnectionSource connectionSource) {
@@ -42,11 +48,10 @@ public class OrmLiteBaseDAOImpl<T> implements BaseDAO<T, ConnectionSource> {
         return dao.queryForEq(column, o);
     }
 
-    public T queryForId(int id) {
+    public T queryForId(ID id) {
         try {
             return dao.queryForId(id);
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return null;
