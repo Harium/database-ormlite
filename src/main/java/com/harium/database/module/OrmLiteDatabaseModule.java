@@ -2,6 +2,9 @@ package com.harium.database.module;
 
 import com.harium.database.dao.OrmLiteBaseDAOImpl;
 import com.harium.database.model.BaseDAO;
+import com.j256.ormlite.logger.Log;
+import com.j256.ormlite.logger.Log4jLog;
+import com.j256.ormlite.logger.Logger;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.DatabaseTableConfig;
 import com.j256.ormlite.table.TableUtils;
@@ -107,5 +110,13 @@ public abstract class OrmLiteDatabaseModule<ID> implements DatabaseModule<Connec
 
     public void setIgnoreErrors(boolean ignoreErrors) {
         this.ignoreErrors = ignoreErrors;
+    }
+
+    public static void logLevel(Log4jLog.Level level) {
+        System.setProperty("com.j256.ormlite.logger.level", level.name());
+    }
+
+    public static void disableLogs() {
+        logLevel(Log.Level.FATAL);
     }
 }
