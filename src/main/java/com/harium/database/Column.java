@@ -58,6 +58,16 @@ public class Column {
         return this;
     }
 
+    public Column uniqueCombo() {
+        config.setUniqueCombo(true);
+        return this;
+    }
+
+    public Column uniqueCombo(boolean uniqueCombo) {
+        config.setUniqueCombo(uniqueCombo);
+        return this;
+    }
+
     public Column unique() {
         config.setUnique(true);
         return this;
